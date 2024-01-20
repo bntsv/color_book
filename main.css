@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1em;
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
 }
 
 header,
@@ -15,10 +15,19 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 4em;
+  min-height: 2em;
   box-sizing: border-box;
-  border: solid 1px rgb(153, 153, 153);
+  /* border: solid 1px rgb(153, 153, 153); */
   width: 100%;
+}
+
+header,
+footer {
+  padding: 1em;
+}
+
+header {
+  justify-content: space-between;
 }
 
 main {
@@ -35,7 +44,7 @@ section {
   align-items: center;
   gap: 1em;
   box-sizing: border-box;
-  border: solid 1px rgb(153, 153, 153);
+  /* border: solid 1px rgb(153, 153, 153); */
   width: 100%;
   max-width: 32em;
   /* padding: 0.5em; */
@@ -47,7 +56,8 @@ form {
   gap: 0.8em;
   width: 100%;
   padding: 2em;
-  background-color: white;
+  background-color: #faf9f675;
+  border-radius: 1em;
 }
 
 fieldset {
@@ -59,14 +69,25 @@ fieldset {
   justify-content: space-between;
 }
 
-p,
-h2 {
+h1,
+h2,
+p {
   margin: 0;
 }
 
 h2 {
   margin-bottom: 0.6em;
 }
+
+/* #r {
+  color: red;
+}
+#g {
+  color: green;
+}
+#b {
+  color: blue;
+} */
 
 .submit-button {
   margin-left: auto;
@@ -114,8 +135,49 @@ label {
   align-self: flex-start;
 }
 
-.table-section {
-  min-height: 20em;
+section.table-section {
+  min-width: 48em;
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  border-collapse: collapse;
+  /* table-layout: fixed; */
+  width: 100%;
+}
+
+div.table-wrap {
+  background-color: #faf9f675;
+  width: 100%;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+div.print-button-wrap {
+  min-width: 32em;
+  display: flex;
+}
+
+.print-button,
+.submit-button {
+  margin-left: auto;
+  width: 4em;
+  margin-right: 2em;
+}
+th,
+td {
+  text-align: left;
+  /* padding: 0.5em 0; */
+  padding-left: 2em;
+}
+
+tr:not(:first-child) {
+  border-top: 1px solid lightgray;
+}
+
+table:first-child > tr {
+  border: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -132,5 +194,53 @@ label {
     /* margin-bottom: 0.5em; */
     min-width: 6em;
     align-self: flex-start;
+  }
+}
+
+body {
+  /* background: linear-gradient(-45deg, red, white, blue, green); */
+  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+  /* background-size: 400% 400%; */
+  /* animation: gradient 15s ease infinite; */
+  background-color: white;
+  animation: colors 30s ease infinite;
+  /* height: 100vh; */
+}
+
+/* @keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+    background-color: red;
+  }
+  25% {
+    background-position: 100% 50%;
+    background-color: blue;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
+@keyframes colors {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: #0085e5;
+  }
+  50% {
+    background-color: #dfff00;
+  }
+  75% {
+    background-color: #f33a6a;
+  }
+  100% {
+    background-color: white;
   }
 }

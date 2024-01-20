@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
     <link href="main.css" rel="stylesheet" />
   </head>
   <body>
     <header>
-      <h1>RGBook</h1>
+      <h1><b id="r">R</b><b id="g">G</b><b id="b">B</b>ook</h1>
+      <a href="https://github.com/bntsv/color_book" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #000000"></i></a>
     </header>
     <main>
       <!-- <h2>Contacts form</h2> -->
@@ -89,17 +92,63 @@
           <!-- <input class="submit-button" type="submit" /> -->
         </form>
 
-        <button type="submit" form="contactForm" class="submit-button">Add contact</button>
+        <button type="submit" form="contactForm" class="submit-button">Add</button>
       </section>
 
-      <h2>Contacts table</h2>
+      <!-- <h2>Contacts table</h2> -->
       <section class="table-section">
-        <table></table>
+        <div class="print-button-wrap">
+          <button class="print-button">Print</button>
+        </div>
+
+        <div class="table-wrap">
+          <table cellpadding="10">
+            <!-- <caption>
+            Cars, cars
+          </caption> -->
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Email</th>
+                <th scope="col">Age</th>
+                <th scope="col">Color</th>
+                <th scope="col">Contact by</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>jdoe@email.com</td>
+                <td>25</td>
+                <td>red</td>
+                <td>phone</td>
+              </tr>
+              <tr>
+                <td>Foo</td>
+                <td>Bar</td>
+                <td>fb@email.com</td>
+                <td>38</td>
+                <td>white</td>
+                <td>SMS</td>
+              </tr>
+              <tr>
+                <td>Lin</td>
+                <td>Ming</td>
+                <td>mingl@email.com</td>
+                <td>43</td>
+                <td>blue</td>
+                <td>email</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </main>
 
     <footer>
-      <a href="https://github.com/bntsv/color_book" target="_blank">github repo</a>
+      <a href="https://github.com/bntsv/color_book" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #000000"></i></a>
     </footer>
   </body>
 </html>
