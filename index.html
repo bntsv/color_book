@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" rel="stylesheet" />
+    <link href="main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>RGBook</h1>
+    </header>
+    <main>
+      <!-- <h2>Contacts form</h2> -->
+      <section>
+        <form id="contactForm" autocomplete="on">
+          <fieldset class="names">
+            <div class="name">
+              <label for="nameInput">Name</label>
+              <input name="name" id="nameInput" type="text" autocomplete="given-name" />
+            </div>
+
+            <div class="surname">
+              <label for="surnameInput">Surname</label>
+              <input name="surname" id="surnameInput" type="text" autocomplete="family-name" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <div class="email">
+              <label for="emailInput">Email</label>
+              <input name="email" id="emailInput" type="email" autocomplete="email" />
+            </div>
+          </fieldset>
+
+          <fieldset class="age-color">
+            <div class="age">
+              <label for="ageInput">Age</label>
+              <input name="age" id="ageInput" type="number" min="0" max="120" />
+            </div>
+
+            <div class="color">
+              <label for="colorSelect">Favorite color</label>
+              <select name="color" id="colorSelect">
+                <!-- add default selection??? -->
+                <option value="red" selected="selected">red</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+                <option value="black">black</option>
+                <option value="white">white</option>
+              </select>
+            </div>
+
+            <!-- use dataList for autocomplete? -->
+            <!-- <label for="colorInput">Favorite color</label>
+          <input list="colors" name="color" id="colorInput" />
+          <datalist id="colors">
+            <option value="red" selected="selected">red</option>
+            <option value="green">green</option>
+            <option value="blue">blue</option>
+            <option value="black">black</option>
+            <option value="white">white</option>
+          </datalist> -->
+
+            <!-- suggest using input type color (doesn't work on IE 11) -->
+          </fieldset>
+
+          <fieldset class="checkboxes">
+            <!-- <legend>How do you prefer to be contacted?</legend> -->
+            <p>How do you prefer to be contacted?</p>
+
+            <div class="checkbox">
+              <input type="checkbox" id="contactByMail" name="contactByMail" value="Email" />
+              <label for="contactByMail">by email</label>
+            </div>
+
+            <div class="checkbox">
+              <input type="checkbox" id="contactByPhone" name="contactByPhone" value="Phone" />
+              <label for="contactByPhone">by phone call</label>
+            </div>
+
+            <div class="checkbox">
+              <input type="checkbox" id="contactBySMS" name="contactBySMS" value="SMS" />
+              <label for="contactBySMS">via SMS</label>
+            </div>
+          </fieldset>
+
+          <!-- <input class="submit-button" type="submit" /> -->
+        </form>
+
+        <button type="submit" form="contactForm" class="submit-button">Add contact</button>
+      </section>
+
+      <h2>Contacts table</h2>
+      <section class="table-section">
+        <table></table>
+      </section>
+    </main>
+
+    <footer>
+      <a href="https://github.com/bntsv/color_book" target="_blank">github repo</a>
+    </footer>
+  </body>
+</html>

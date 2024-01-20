@@ -1,0 +1,136 @@
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  background-color: aliceblue;
+}
+
+header,
+main,
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 4em;
+  box-sizing: border-box;
+  border: solid 1px rgb(153, 153, 153);
+  width: 100%;
+}
+
+main {
+  flex: 1;
+  flex-direction: column;
+  gap: 0.8em;
+  justify-content: flex-start;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  box-sizing: border-box;
+  border: solid 1px rgb(153, 153, 153);
+  width: 100%;
+  max-width: 32em;
+  /* padding: 0.5em; */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  width: 100%;
+  padding: 2em;
+  background-color: white;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  gap: 0.8em;
+  justify-content: space-between;
+}
+
+p,
+h2 {
+  margin: 0;
+}
+
+h2 {
+  margin-bottom: 0.6em;
+}
+
+.submit-button {
+  margin-left: auto;
+}
+
+fieldset.checkboxes {
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+div.name,
+div.surname,
+div.email,
+div.age,
+div.color,
+div.checkbox {
+  display: flex;
+  gap: 0.5em;
+  flex-basis: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.checkbox {
+  flex-basis: auto;
+  flex-direction: row;
+}
+
+input,
+select {
+  width: 100%;
+}
+
+div.checkbox > input {
+  width: initial;
+  /* align-self: self-end; */
+  /* position: relative;
+  vertical-align: middle; */
+}
+
+label {
+  white-space: nowrap;
+  min-width: 6em;
+  align-self: flex-start;
+}
+
+.table-section {
+  min-height: 20em;
+}
+
+@media only screen and (max-width: 600px) {
+  fieldset,
+  div.name,
+  div.surname,
+  div.email,
+  div.age,
+  div.color {
+    flex-direction: column;
+  }
+
+  label {
+    /* margin-bottom: 0.5em; */
+    min-width: 6em;
+    align-self: flex-start;
+  }
+}
