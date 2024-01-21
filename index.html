@@ -58,13 +58,13 @@
 
             <div class="color">
               <label for="colorInput">Favorite color</label>
-              <input type="color" list="rgbColors" id="colorInput" />
+              <input type="color" name="color" list="rgbColors" id="colorInput" />
               <datalist id="rgbColors">
                 <option value="#000000" selected="selected"></option>
-                <option value="#FFFFFF"></option>
-                <option value="#FF0000"></option>
+                <option value="#ffffff"></option>
+                <option value="#ff0000"></option>
                 <option value="#008000"></option>
-                <option value="#0000FF"></option>
+                <option value="#0000ff"></option>
               </datalist>
             </div>
           </fieldset>
@@ -94,7 +94,7 @@
 
       <!-- <h2>Your contacts:</h2> -->
       <section class="table-section">
-        <div class="print-button-wrap">
+        <div class="print-button-wrap hidden">
           <button class="print-button">Print</button>
         </div>
 
@@ -110,8 +110,8 @@
                 <th scope="col">Contact by</th>
               </tr>
             </thead>
-            <tbody>
-              <!-- <tr>
+            <!-- <tbody>
+              <tr>
                 <td>John</td>
                 <td>Doe</td>
                 <td>jdoe@email.com</td>
@@ -134,8 +134,8 @@
                 <td>43</td>
                 <td>blue</td>
                 <td>email</td>
-              </tr> -->
-            </tbody>
+              </tr>
+            </tbody> -->
           </table>
           <p class="table-empty-state">
             You haven't added any contacts yet! <br />
@@ -146,7 +146,7 @@
     </main>
 
     <footer>
-      <a href="https://github.com/bntsv/color_book" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #000000"></i></a>
+      <a href="https://github.com/bntsv/color_book" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #ffffff"></i></a>
     </footer>
 
     <script type="module" src="./src/features/main.js"></script>

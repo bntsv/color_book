@@ -1,27 +1,35 @@
-const mapReplacer = (key, value) => {
-  if (value instanceof Map) {
-    return {
-      dataType: 'Map',
-      value: Array.from(value.entries()) // or with spread: value: [...value]
-    };
-  } else {
-    return value;
-  }
+// const mapReplacer = (key, value) => {
+//   if (value instanceof Map) {
+//     return {
+//       dataType: 'Map',
+//       value: Array.from(value.entries()) // or with spread: value: [...value]
+//     };
+//   } else {
+//     return value;
+//   }
+// };
+
+// const mapReviver = (key, value) => {
+//   if (typeof value === 'object' && value !== null) {
+//     if (value.dataType === 'Map') {
+//       return new Map(value.value);
+//     }
+//   }
+//   return value;
+// };
+
+// export const stringifyMap = (map) => {
+//   return JSON.stringify(map, mapReplacer);
+// };
+
+// export const parseMap = (map) => {
+//   return JSON.parse(map, mapReviver);
+// };
+
+export const getDataAsMap = (data) => {
+  return new Map(JSON.parse(data));
 };
 
-const mapReviver = (key, value) => {
-  if (typeof value === 'object' && value !== null) {
-    if (value.dataType === 'Map') {
-      return new Map(value.value);
-    }
-  }
-  return value;
-};
-
-export const stringifyMap = (map) => {
-  return JSON.stringify(map, mapReplacer);
-};
-
-export const parseMap = (map) => {
-  return JSON.parse(map, mapReviver);
+export const mapToArray = (map) => {
+  return Array.from(map.values());
 };

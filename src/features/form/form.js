@@ -1,5 +1,4 @@
-import { toggleTableEmptyState, updateTable } from '../table/table.js';
-// import { stringifyMap, parseMap } from '../utils.js';
+import { addToCache, announceChange } from '../local-storage.utils.js';
 
 const formElem = document.querySelector('form');
 
@@ -22,33 +21,6 @@ const getRowData = (formData) => {
   };
 };
 
-// add to session storage and return the table data
-const updateCache = (key, value) => {
-  //   if (!existingTableData) {
-  //     const tableData = {};
-  //     tableData[value.id] = value;
-  //     window.sessionStorage.set(key, tableData);
-  //   } else {
-  //     existingTableData[value.id] = value;
-  //   }
-
-  const data = localStorage.getItem(key);
-  let cache;
-
-  if (!data) {
-    cache = new Map();
-    cache.set(value.id, value);
-  } else {
-    cache = new Map(JSON.parse(data));
-    cache.set(value.id, value);
-  }
-
-  const cacheStr = JSON.stringify(Array.from(cache.entries()));
-  localStorage.setItem(key, cacheStr);
-
-  return cache;
-};
-
 formElem.addEventListener('submit', (e) => {
   // prevent page re-rendering
   e.preventDefault();
@@ -56,18 +28,11 @@ formElem.addEventListener('submit', (e) => {
   // create the data object
   const tableRowData = getRowData(new FormData(formElem));
 
-  // update the table
-  updateTable(tableRowData);
-
   // update cache
-  updateCache('tableData', tableRowData);
+  addToCache('tableData', tableRowData);
 
-  // show table if this is the first added contact and hide empty state
-  const table = document.querySelector('table');
-  if (table.classList.contains('hidden')) {
-    table.classList.toggle('hidden');
-    toggleTableEmptyState();
-  }
+  // notify change
+  announceChange('storeUpdate');
 
   // reset form
   formElem.reset();

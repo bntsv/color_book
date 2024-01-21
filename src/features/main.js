@@ -1,36 +1,31 @@
 import './form/form-validations.js';
 import './form/form.js';
-import { fillTable, toggleTableEmptyState, toggleTableFullState } from './table/table.js';
+import { getLocalStorageData } from './local-storage.utils.js';
+import { getDataAsMap, mapToArray } from './utils.js';
+import { hideTable, renderTable } from './table/table.js';
 
-addEventListener('DOMContentLoaded', (event) => {
-  const data = localStorage.getItem('tableData');
-
-  console.log(data);
+const loadTableData = () => {
+  const data = getLocalStorageData('tableData');
 
   if (data) {
-    const tableData = new Map(JSON.parse(data));
+    const tableDataArray = mapToArray(getDataAsMap(data));
 
-    fillTable(Array.from(tableData.values()));
-    toggleTableFullState();
-    toggleTableEmptyState();
+    renderTable(tableDataArray);
+
+    return;
   }
-});
 
-// add new row to table
-// const generateTable = (data) => {
-//   const { name, surname, email, age, color, prefContact } = data;
+  hideTable();
+};
 
-//   const tbodyEl = document.querySelector('tbody');
-//   const newRowEl = document.createElement('tr');
-//   const rowContent = `
-//     <td>${name}</td>
-//     <td>${surname}</td>
-//     <td>${email}</td>
-//     <td>${age}</td>
-//     <td>${color}</td>
-//     <td>${prefContact}</td>
-//   `;
-
-//   newRowEl.innerHTML = rowContent;
-//   tbodyEl.appendChild(newRowEl);
-// };
+addEventListener('DOMContentLoaded', loadTableData);
+document.addEventListener('storeUpdate', loadTableData, false);
+// document.addEventListener(
+//   'trDeleted',
+//   () => {
+//     if (document.querySelector('tbody').innerHTML === '') {
+//       hideTable();
+//     }
+//   },
+//   false
+// );

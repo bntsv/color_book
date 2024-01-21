@@ -30,7 +30,6 @@
   function checkValidity() {
     const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
     firstCheckbox.setCustomValidity(errorMessage);
-    console.log(errorMessage);
   }
 
   init();

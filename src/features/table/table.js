@@ -1,42 +1,37 @@
-// const createTable = () => {
-//   const table = document.createElement('table');
+import { announceChange, deleteFromCache } from '../local-storage.utils.js';
 
-//   const tableContent = `
-//       <table cellpadding="10">
-//           <thead>
-//               <tr>
-//                   <th scope="col">Name</th>
-//                   <th scope="col">Surname</th>
-//                   <th scope="col">Email</th>
-//                   <th scope="col">Age</th>
-//                   <th scope="col">Color</th>
-//                   <th scope="col">Contact by</th>
-//               </tr>
-//           </thead>
-//       </table>
-//     `;
+const deleteTR = (trID) => {
+  deleteFromCache('tableData', trID);
 
-//   table.innerHTML = tableContent;
+  // notify change
+  announceChange('storeUpdate');
+};
 
-//   return table;
-// };
+const attachDeleteHandlers = () => {
+  const deleteButtons = document.querySelectorAll('.fa-trash');
+
+  deleteButtons.forEach((btn) => {
+    btn.onclick = () => {
+      deleteTR(btn.id);
+    };
+  });
+};
 
 const generateTRContent = (trData) => {
-  const { name, surname, email, age, color, prefContact } = trData;
+  const { id, name, surname, email, age, color, prefContact } = trData;
 
   return `
         <td>${name}</td>
         <td>${surname}</td>
         <td>${email}</td>
         <td>${age}</td>
-        <td>${color}</td>
-        <td>${prefContact}</td>
+        <td><div style="background-color:${color}; width: 1em; height: 1em; border-radius: 50%; margin: 0 auto"></div></td>
+        <td>${prefContact} <i class="fa-solid fa-trash" id=${id}></i></td>
       `;
 };
 
 const generateTBody = (tableData) => {
   return tableData.reduce((tbodyContent, trData) => {
-    console.log(trData);
     const tr = generateTRContent(trData);
     tbodyContent += `<tr>${tr}</tr>`;
 
@@ -45,24 +40,45 @@ const generateTBody = (tableData) => {
 };
 
 export const fillTable = (tableData) => {
-  const tableBodyEl = document.querySelector('tbody');
-  tableBodyEl.innerHTML = generateTBody(tableData);
-};
-
-export const updateTable = (trData) => {
-  const tableBodyEl = document.querySelector('tbody');
-  const tr = document.createElement('tr');
-  tr.innerHTML = generateTRContent(trData);
-
-  tableBodyEl.appendChild(tr);
-};
-
-export const toggleTableFullState = () => {
   const table = document.querySelector('table');
-  table.classList.toggle('hidden');
+
+  const oldTableBodyEl = document.querySelector('tbody');
+
+  const newTableBodyEl = document.createElement('tbody');
+  newTableBodyEl.innerHTML = generateTBody(tableData);
+
+  if (oldTableBodyEl) {
+    table.replaceChild(newTableBodyEl, oldTableBodyEl);
+    attachDeleteHandlers();
+
+    return;
+  }
+
+  table.appendChild(newTableBodyEl);
+  attachDeleteHandlers();
 };
 
-export const toggleTableEmptyState = () => {
+export const showTable = () => {
+  const table = document.querySelector('table');
+  const printBtnWrap = document.querySelector('.print-button-wrap');
   const tableEmptyState = document.querySelector('.table-empty-state');
-  tableEmptyState.classList.toggle('hidden');
+
+  table.classList.remove('hidden');
+  printBtnWrap.classList.remove('hidden');
+  tableEmptyState.classList.add('hidden');
+};
+
+export const hideTable = () => {
+  const table = document.querySelector('table');
+  const printBtnWrap = document.querySelector('.print-button-wrap');
+  const tableEmptyState = document.querySelector('.table-empty-state');
+
+  table.classList.add('hidden');
+  printBtnWrap.classList.add('hidden');
+  tableEmptyState.classList.remove('hidden');
+};
+
+export const renderTable = (tableData) => {
+  fillTable(tableData);
+  showTable();
 };
