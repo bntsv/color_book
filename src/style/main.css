@@ -136,27 +136,30 @@ label {
 }
 
 section.table-section {
-  min-width: 48em;
+  /* min-width: 48em; */
   display: flex;
   flex-direction: column;
 }
 
 table {
-  border-collapse: collapse;
   /* table-layout: fixed; */
+  border-collapse: collapse;
   width: 100%;
 }
 
 div.table-wrap {
   background-color: #faf9f675;
-  width: 100%;
   padding: 2em;
   border-radius: 1em;
+  /* width: 100%; */
+  /* overflow-x: auto; */
 }
 
 div.print-button-wrap {
-  min-width: 32em;
+  max-width: 32em;
   display: flex;
+  flex: 1;
+  width: 100%;
 }
 
 .print-button,
@@ -168,8 +171,8 @@ div.print-button-wrap {
 th,
 td {
   text-align: left;
-  /* padding: 0.5em 0; */
   padding-left: 2em;
+  white-space: nowrap;
 }
 
 tr:not(:first-child) {
@@ -178,23 +181,6 @@ tr:not(:first-child) {
 
 table:first-child > tr {
   border: none;
-}
-
-@media only screen and (max-width: 600px) {
-  fieldset,
-  div.name,
-  div.surname,
-  div.email,
-  div.age,
-  div.color {
-    flex-direction: column;
-  }
-
-  label {
-    /* margin-bottom: 0.5em; */
-    min-width: 6em;
-    align-self: flex-start;
-  }
 }
 
 body {
@@ -242,5 +228,47 @@ body {
   }
   100% {
     background-color: white;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.table-empty-state {
+  text-align: center;
+  min-width: 28em;
+}
+
+@media only screen and (max-width: 600px) {
+  fieldset,
+  div.name,
+  div.surname,
+  div.email,
+  div.age,
+  div.color {
+    flex-direction: column;
+  }
+
+  label {
+    min-width: 6em;
+    align-self: flex-start;
+  }
+
+  section {
+    width: calc(100% - 2em);
+  }
+
+  section.table-section {
+    flex-wrap: wrap;
+  }
+
+  div.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .table-empty-state {
+    min-width: initial;
   }
 }
