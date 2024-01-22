@@ -1,6 +1,6 @@
-import { deleteFromCache } from '../local-storage.utils.js';
+import { deleteFromCache } from '../../utils/local-storage.utils.js';
 import { openDeleteModal, openPrintModal } from '../modal/modal.js';
-import { announceChange } from '../utils.js';
+import { announceChange } from '../../utils/utils.js';
 
 export const deleteTR = (trID) => {
   deleteFromCache('tableData', trID);

@@ -1,0 +1,98 @@
+/* form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  width: 100%;
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 1em;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  gap: 0.8em;
+  justify-content: space-between;
+}
+
+input {
+  width: 100%;
+  height: 1.8em;
+}
+
+label {
+  white-space: nowrap;
+  min-width: 6em;
+  align-self: flex-start;
+}
+
+fieldset.checkboxes {
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.submit-button {
+  margin-left: auto;
+}
+
+div.name,
+div.surname,
+div.email,
+div.age,
+div.color,
+div.checkbox {
+  display: flex;
+  gap: 0.3em;
+  flex-basis: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.checkbox {
+  flex-basis: auto;
+  flex-direction: row;
+  gap: 0.6em;
+}
+
+div.checkbox > * {
+  cursor: pointer;
+}
+
+div.checkbox > input {
+  width: 1em;
+  height: 1em;
+  align-self: self-end;
+  accent-color: black;
+}
+
+#nameInput,
+#surnameInput,
+#emailInput,
+#ageInput {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: solid 2px lightgray;
+  box-sizing: border-box;
+}
+
+#nameInput:focus,
+#surnameInput:focus,
+#emailInput:focus,
+#ageInput:focus {
+  border-color: black;
+}
+
+#colorInput {
+  cursor: pointer;
+  padding: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s;
+}

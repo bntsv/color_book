@@ -1,6 +1,6 @@
 // convert data to map
 export const getDataAsMap = (data) => {
-  return new Map(JSON.parse(data));
+  return new Map(Object.entries(JSON.parse(data)));
 };
 
 // convert map to array;
@@ -13,7 +13,7 @@ export const getDataAsJSONString = (data) => {
   const dataAsMap = getDataAsMap(data);
   const dataAsObject = Object.fromEntries(dataAsMap.entries());
 
-  return data ? JSON.stringify(dataAsObject, null, '\n') : null;
+  return data ? JSON.stringify(dataAsObject, null, 2) : null;
 };
 
 // notify change
