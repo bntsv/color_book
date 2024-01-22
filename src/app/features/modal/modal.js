@@ -1,6 +1,6 @@
-import { getLocalStorageData } from '../local-storage.utils.js';
+import { getLocalStorageData } from '../../utils/local-storage.utils.js';
 import { deleteTR } from '../table/table.js';
-import { getDataAsJSONString } from '../utils.js';
+import { getDataAsJSONString } from '../../utils/utils.js';
 
 const modalDelete = document.querySelector('.delete-modal-wrap');
 const modalPrint = document.querySelector('.print-modal-wrap');

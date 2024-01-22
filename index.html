@@ -6,9 +6,9 @@
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" /> -->
 
     <link href="./src/style/main.css" rel="stylesheet" />
   </head>
@@ -61,9 +61,9 @@
 
             <div class="color">
               <label for="colorInput">Favorite color</label>
-              <input type="color" name="color" list="rgbColors" id="colorInput" />
+              <input type="color" name="color" value="#000000" list="rgbColors" id="colorInput" />
               <datalist id="rgbColors">
-                <option value="#000000" selected="selected"></option>
+                <option value="#000000"></option>
                 <option value="#ffffff"></option>
                 <option value="#ff0000"></option>
                 <option value="#008000"></option>
@@ -122,11 +122,13 @@
     </main>
 
     <footer>
-      <a href="https://github.com/bntsv/color_book" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #ffffff"></i></a>
+      <a href="https://www.linkedin.com/in/boris-netsov-912664228" target="_blank"><i class="fa-brands fa-linkedin fa-2xl" style="color: #ffffff"></i></a>
+      <a href="https://gitlab.com/bntsv" target="_blank"><i class="fa-brands fa-gitlab fa-2xl" style="color: #ffffff"></i></a>
+      <a href="https://github.com/bntsv" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #ffffff"></i></a>
     </footer>
 
     <!-- TODO: some custom html elements could be created using Web Components
-    buttons and modals could be good candidates -->
+    buttons, table row and modals could be good potential candidates -->
     <div class="modal-wrap delete-modal-wrap">
       <div class="modal">
         <button class="modal-x-button">&times;</button>
@@ -163,6 +165,6 @@
       </div>
     </div>
 
-    <script type="module" src="./src/features/main.js"></script>
+    <script type="module" src="./src/app/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,91 @@
+/* layout styling */
+html {
+  background: #ffffff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #000000); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  animation: colors 45s ease infinite;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header,
+main,
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 2em;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+header,
+footer {
+  padding: 1em;
+}
+
+header {
+  justify-content: space-between;
+}
+
+footer {
+  background-color: black;
+  gap: 1em;
+  justify-content: flex-start;
+}
+
+main {
+  flex: 1;
+  flex-direction: column;
+  gap: 0.8em;
+  justify-content: flex-start;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 32em;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h2 {
+  margin-bottom: 0.4em;
+}
+
+@keyframes colors {
+  0% {
+    background-color: #ffffff;
+  }
+  25% {
+    background-color: #0085e590;
+  }
+  50% {
+    background-color: #dfff0090;
+  }
+  75% {
+    background-color: #f33a6a90;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}

@@ -1,0 +1,48 @@
+/* buttons styling */
+button {
+  background: #ffffff;
+  color: black;
+  height: 2em;
+  border-radius: 1em;
+  outline: none;
+  border: none;
+  padding: 0 1em;
+  line-height: 2em;
+  font-weight: 600;
+}
+
+button:hover {
+  color: #ffffff;
+  background: black;
+  cursor: pointer;
+}
+
+.print-button-wrap {
+  max-width: 32em;
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.print-button,
+.submit-button {
+  margin-left: auto;
+  width: 5em;
+  margin-right: 2em;
+}
+
+.fa-trash {
+  visibility: hidden;
+  position: absolute;
+  right: 0.7em;
+  top: 0.7em;
+}
+
+.fa-trash:hover {
+  color: red;
+  cursor: pointer;
+}
+
+tr:hover > td > .fa-trash {
+  visibility: visible;
+}

@@ -1,0 +1,41 @@
+/* table styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding-left: 2em;
+  padding-right: 2em;
+  white-space: nowrap;
+  position: relative;
+}
+
+section.table-section {
+  display: flex;
+  flex-direction: column;
+}
+
+div.table-wrap {
+  padding: 2em;
+  border-radius: 1em;
+}
+
+tr:not(:first-child) {
+  border-top: 1px solid black;
+}
+
+tbody > tr:hover {
+  background-color: #ffffff75;
+}
+
+table:first-child > tr {
+  border: none;
+}
+
+.table-empty-state {
+  text-align: center;
+  min-width: 28em;
+}
