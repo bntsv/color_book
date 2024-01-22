@@ -6,16 +6,19 @@
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
 
     <link href="./src/style/main.css" rel="stylesheet" />
   </head>
   <body>
     <header>
-      <h1><b id="r">R</b><b id="g">G</b><b id="b">B</b>ook</h1>
+      <h1><b>R</b><b>G</b><b>B</b>ook</h1>
       <a href="https://github.com/bntsv/color_book" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #000000"></i></a>
     </header>
+
     <main>
-      <!-- <h2>Contacts form</h2> -->
       <section>
         <form id="contactForm" autocomplete="on">
           <fieldset class="names">
@@ -54,7 +57,7 @@
               </select>
             </div> -->
 
-            <!-- use dataList (has autocomplete, can be used in combination with color type, but type="color" and dataList don't have full support on some browsers) ? -  -->
+            <!-- use dataList (has autocomplete, can be used in combination with color type, but type="color" and dataList don't have full support on some browsers - currently working well under chrome) ? -  -->
 
             <div class="color">
               <label for="colorInput">Favorite color</label>
@@ -92,7 +95,6 @@
         <button type="submit" form="contactForm" class="submit-button">Add</button>
       </section>
 
-      <!-- <h2>Your contacts:</h2> -->
       <section class="table-section">
         <div class="print-button-wrap hidden">
           <button class="print-button">Print</button>
@@ -110,32 +112,6 @@
                 <th scope="col">Contact by</th>
               </tr>
             </thead>
-            <!-- <tbody>
-              <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>jdoe@email.com</td>
-                <td>25</td>
-                <td>red</td>
-                <td>phone</td>
-              </tr>
-              <tr>
-                <td>Foo</td>
-                <td>Bar</td>
-                <td>fb@email.com</td>
-                <td>38</td>
-                <td>white</td>
-                <td>SMS</td>
-              </tr>
-              <tr>
-                <td>Lin</td>
-                <td>Ming</td>
-                <td>mingl@email.com</td>
-                <td>43</td>
-                <td>blue</td>
-                <td>email</td>
-              </tr>
-            </tbody> -->
           </table>
           <p class="table-empty-state">
             You haven't added any contacts yet! <br />
@@ -148,6 +124,44 @@
     <footer>
       <a href="https://github.com/bntsv/color_book" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #ffffff"></i></a>
     </footer>
+
+    <!-- TODO: some custom html elements could be created using Web Components
+    buttons and modals could be good candidates -->
+    <div class="modal-wrap delete-modal-wrap">
+      <div class="modal">
+        <button class="modal-x-button">&times;</button>
+
+        <div class="modal-content">
+          <header class="modal-title">
+            <h2>Delete contact?</h2>
+          </header>
+
+          <main class="modal-info">
+            <p>Are you sure you want to delete this contact?</p>
+            <p>This cannot be undone.</p>
+          </main>
+
+          <footer class="modal-footer">
+            <button class="modal-delete-button">Delete</button>
+            <button class="modal-cancel-button">Cancel</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-wrap print-modal-wrap">
+      <div class="modal print-modal">
+        <button class="modal-x-button">&times;</button>
+
+        <div class="modal-content">
+          <header class="modal-title">
+            <h2>Table JSON:</h2>
+          </header>
+
+          <main class="modal-info print-modal-info"></main>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="./src/features/main.js"></script>
   </body>

@@ -1,4 +1,4 @@
-// the required validations are currently handled by the tag attributes.
+// TODO: the required validations are currently handled by the tag attributes.
 // more custom validations could be added as well as inline error messages
 // for better UX and a11y - https://www.a11yproject.com/posts/how-to-write-accessible-forms/
 

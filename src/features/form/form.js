@@ -1,4 +1,5 @@
-import { addToCache, announceChange } from '../local-storage.utils.js';
+import { addToCache } from '../local-storage.utils.js';
+import { announceChange } from '../utils.js';
 
 const formElem = document.querySelector('form');
 

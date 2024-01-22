@@ -1,35 +1,26 @@
-// const mapReplacer = (key, value) => {
-//   if (value instanceof Map) {
-//     return {
-//       dataType: 'Map',
-//       value: Array.from(value.entries()) // or with spread: value: [...value]
-//     };
-//   } else {
-//     return value;
-//   }
-// };
-
-// const mapReviver = (key, value) => {
-//   if (typeof value === 'object' && value !== null) {
-//     if (value.dataType === 'Map') {
-//       return new Map(value.value);
-//     }
-//   }
-//   return value;
-// };
-
-// export const stringifyMap = (map) => {
-//   return JSON.stringify(map, mapReplacer);
-// };
-
-// export const parseMap = (map) => {
-//   return JSON.parse(map, mapReviver);
-// };
-
+// convert data to map
 export const getDataAsMap = (data) => {
   return new Map(JSON.parse(data));
 };
 
+// convert map to array;
 export const mapToArray = (map) => {
   return Array.from(map.values());
+};
+
+// get data as json string
+export const getDataAsJSONString = (data) => {
+  const dataAsMap = getDataAsMap(data);
+  const dataAsObject = Object.fromEntries(dataAsMap.entries());
+
+  return data ? JSON.stringify(dataAsObject, null, '\n') : null;
+};
+
+// notify change
+export const announceChange = (msg) => {
+  const event = new Event(msg);
+
+  document.dispatchEvent(event);
+
+  console.log(msg);
 };

@@ -1,4 +1,8 @@
+/* TODO: using css variables will help the code become easier to maintain */
+/* #faf9f6 */
+
 body {
+  position: relative;
   box-sizing: border-box;
   min-height: 100vh;
   display: flex;
@@ -6,7 +10,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1em;
-  animation: colors 30s ease infinite;
+  animation: colors 60s ease infinite;
+  font-family: 'Roboto Mono', monospace;
 }
 
 header,
@@ -51,13 +56,24 @@ section {
   max-width: 32em;
 }
 
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h2 {
+  margin-bottom: 0.4em;
+}
+
+/* form styling */
 form {
   display: flex;
   flex-direction: column;
   gap: 0.8em;
   width: 100%;
   padding: 2em;
-  background-color: #faf9f675;
+  background-color: #ffffff;
   border-radius: 1em;
 }
 
@@ -70,34 +86,25 @@ fieldset {
   justify-content: space-between;
 }
 
-h1,
-h2,
-p {
-  margin: 0;
+input {
+  width: 100%;
+  height: 1.8em;
 }
 
-h2 {
-  margin-bottom: 0.4em;
-}
-
-/* #r {
-  color: red;
-}
-#g {
-  color: green;
-}
-#b {
-  color: blue;
-} */
-
-.submit-button {
-  margin-left: auto;
+label {
+  white-space: nowrap;
+  min-width: 6em;
+  align-self: flex-start;
 }
 
 fieldset.checkboxes {
   justify-content: flex-start;
   flex-direction: column;
   margin-top: 1em;
+}
+
+.submit-button {
+  margin-left: auto;
 }
 
 div.name,
@@ -113,47 +120,59 @@ div.checkbox {
   flex-direction: column;
 }
 
+#nameInput,
+#surnameInput,
+#emailInput,
+#ageInput {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: solid 2px lightgray;
+  box-sizing: border-box;
+}
+
+#nameInput:focus,
+#surnameInput:focus,
+#emailInput:focus,
+#ageInput:focus {
+  border-color: black;
+}
+
+input[type='color'] {
+  cursor: pointer;
+  padding: 0;
+}
+
 div.checkbox {
   flex-basis: auto;
   flex-direction: row;
-}
-
-input,
-select {
-  width: 100%;
+  gap: 0.6em;
 }
 
 div.checkbox > input {
-  width: initial;
-  /* align-self: self-end; */
-  /* position: relative;
-  vertical-align: middle; */
+  width: 1em;
+  height: 1em;
+  align-self: self-end;
+  accent-color: black;
 }
 
-label {
-  white-space: nowrap;
-  min-width: 6em;
-  align-self: flex-start;
+div.checkbox > * {
+  cursor: pointer;
 }
-
+/* table styling */
 section.table-section {
-  /* min-width: 48em; */
   display: flex;
   flex-direction: column;
 }
 
 table {
-  /* table-layout: fixed; */
   border-collapse: collapse;
   width: 100%;
 }
 
 div.table-wrap {
-  /* background-color: #faf9f675; */
   padding: 2em;
   border-radius: 1em;
-  /* width: 100%; */
-  /* overflow-x: auto; */
 }
 
 .print-button-wrap {
@@ -166,13 +185,14 @@ div.table-wrap {
 .print-button,
 .submit-button {
   margin-left: auto;
-  width: 4em;
+  width: 5em;
   margin-right: 2em;
 }
 th,
 td {
   text-align: left;
   padding-left: 2em;
+  padding-right: 2em;
   white-space: nowrap;
   position: relative;
 }
@@ -182,7 +202,6 @@ tr:not(:first-child) {
 }
 
 .fa-trash {
-  /* color: lightgrey; */
   visibility: hidden;
   position: absolute;
   right: 0.7em;
@@ -195,7 +214,7 @@ tr:not(:first-child) {
 }
 
 tbody > tr:hover {
-  background-color: #faf9f675;
+  background-color: #ffffff75;
 }
 
 tr:hover > td > .fa-trash {
@@ -209,6 +228,120 @@ table:first-child > tr {
 .table-empty-state {
   text-align: center;
   min-width: 28em;
+}
+
+.modal-wrap {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.1em);
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 1em;
+  max-width: 24em;
+  width: calc(100% - 2em);
+  border-radius: 1em;
+  color: #ffffff;
+  background-color: black;
+  transform: translate(-50%, -50%) scale(0.1);
+  transition: transform 1s ease, top 1s ease;
+  box-shadow: 6px 6px 48px #00000075, inset 6px 6px 12px #ffffff50;
+}
+
+.print-modal {
+  max-width: 36em;
+}
+
+.print-modal-info {
+  line-break: strict;
+}
+
+.open-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.open-modal > .modal {
+  top: 40%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  height: 100%;
+}
+
+button {
+  background: #ffffff;
+  color: black;
+  height: 2em;
+  border-radius: 1em;
+  outline: none;
+  border: none;
+  padding: 0 1em;
+  line-height: 2em;
+  font-weight: 600;
+}
+
+button:hover {
+  color: #ffffff;
+  background: black;
+  cursor: pointer;
+}
+
+.modal-x-button {
+  color: #ffffff;
+  background: none;
+  position: absolute;
+  right: 1em;
+  z-index: 1;
+  transform: scale(2);
+}
+
+.modal-x-button:hover {
+  color: red;
+  background: none;
+}
+
+.modal-cancel-button,
+.modal-delete-button {
+  opacity: 0.8;
+}
+
+.modal-cancel-button:hover,
+.modal-delete-button:hover {
+  opacity: 1;
+  background: #ffffff;
+  color: black;
+}
+
+.modal-delete-button:hover {
+  background: red;
+  color: #ffffff;
+}
+.modal-title {
+  justify-content: center;
+}
+
+.modal-info {
+  text-align: center;
+  justify-content: center;
+}
+
+.modal-footer {
+  margin-top: 2em;
+  gap: 1em;
 }
 
 @keyframes colors {

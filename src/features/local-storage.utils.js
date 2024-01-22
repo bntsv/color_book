@@ -1,3 +1,4 @@
+// get from local storage
 export const getLocalStorageData = (key) => {
   return localStorage.getItem(key);
 };
@@ -37,7 +38,6 @@ export const deleteFromCache = (key, itemID) => {
 
   if (entriesArr.length === 0) {
     localStorage.removeItem(key);
-    // localStorage.clear();
 
     return;
   }
@@ -49,13 +49,4 @@ export const deleteFromCache = (key, itemID) => {
     data: cache,
     action: 'delete'
   };
-};
-
-// notify change
-export const announceChange = (msg) => {
-  const event = new Event(msg);
-
-  document.dispatchEvent(event);
-
-  console.log(msg);
 };

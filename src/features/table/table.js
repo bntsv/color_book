@@ -1,9 +1,10 @@
-import { announceChange, deleteFromCache } from '../local-storage.utils.js';
+import { deleteFromCache } from '../local-storage.utils.js';
+import { openDeleteModal, openPrintModal } from '../modal/modal.js';
+import { announceChange } from '../utils.js';
 
-const deleteTR = (trID) => {
+export const deleteTR = (trID) => {
   deleteFromCache('tableData', trID);
 
-  // notify change
   announceChange('storeUpdate');
 };
 
@@ -12,9 +13,17 @@ const attachDeleteHandlers = () => {
 
   deleteButtons.forEach((btn) => {
     btn.onclick = () => {
-      deleteTR(btn.id);
+      openDeleteModal(btn.id);
     };
   });
+};
+
+const attachPrintHandler = () => {
+  const printButton = document.querySelector('.print-button');
+
+  printButton.onclick = () => {
+    openPrintModal();
+  };
 };
 
 const generateTRContent = (trData) => {
@@ -80,5 +89,6 @@ export const hideTable = () => {
 
 export const renderTable = (tableData) => {
   fillTable(tableData);
+  attachPrintHandler();
   showTable();
 };
